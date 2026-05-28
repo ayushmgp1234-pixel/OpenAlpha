@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ⚠️  Before uploading this manifest to Excel Online, replace:
+      ayushmgp1234-pixel  →  your actual GitHub username
+      OpenAlpha        →  your GitHub repo name (e.g. model-addin)
+-->
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xsi:type="TaskPaneApp">
+
+  <Id>d4e5f6a7-b8c9-0123-defa-234567890123</Id>
+  <Version>2.0.0.0</Version>
+  <ProviderName>MODEL Add-in</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="MODEL"/>
+  <Description DefaultValue="Stock data in Excel Online: MODEL, MODELPRICE, MODELFUNDS, MODELOPTIONS"/>
+  <IconUrl DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha"/>
+
+  <AppDomains>
+    <AppDomain>https://ayushmgp1234-pixel.github.io</AppDomain>
+    <AppDomain>https://OpenAlpha.onrender.com</AppDomain>
+  </AppDomains>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/functions.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <AllFormFactors>
+          <ExtensionPoint xsi:type="CustomFunctions">
+            <Script>
+              <bt:Url resid="Functions.Script.Url"/>
+            </Script>
+            <Page>
+              <bt:Url resid="Functions.Page.Url"/>
+            </Page>
+            <Metadata>
+              <bt:Url resid="Functions.Metadata.Url"/>
+            </Metadata>
+            <Namespace resid="Functions.Namespace"/>
+          </ExtensionPoint>
+        </AllFormFactors>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Urls>
+        <bt:Url id="Functions.Script.Url"
+          DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/functions.js"/>
+        <bt:Url id="Functions.Page.Url"
+          DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/functions.html"/>
+        <bt:Url id="Functions.Metadata.Url"
+          DefaultValue="https://ayushmgp1234-pixel.github.io/OpenAlpha/functions.json"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Functions.Namespace" DefaultValue="MODEL"/>
+      </bt:ShortStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
